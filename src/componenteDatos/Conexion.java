@@ -1,11 +1,12 @@
 package componenteDatos;
 
+import util.Constantes;
 import java.sql.*;
 
 public class Conexion {
 
     private static Conexion instancia;
-
+    
     public static Conexion getInstancia() {
         if (instancia == null) {
             instancia = new Conexion();
@@ -21,16 +22,13 @@ public class Conexion {
         Connection cn = null;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(Constantes.DB_DRIVER);
         } catch (ClassNotFoundException e) {
             System.out.println("Error falta cargar el driver" + e.getMessage());
         }
 
         try {
-            String url = "jdbc:mysql://localhost/matricula";
-            String user = "root";
-            String password = "";
-            cn = DriverManager.getConnection(url, user, password);
+            cn = DriverManager.getConnection(Constantes.DB_URI, Constantes.DB_USER, Constantes.DB_PASSWORD);
         } catch (SQLException e) {
             System.out.println("Error no se puede establecer la conexion" + e.getMessage());
         }

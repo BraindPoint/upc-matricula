@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import util.View;
 
 public class dialogAlumnoo extends javax.swing.JDialog {
 
@@ -19,6 +20,8 @@ public class dialogAlumnoo extends javax.swing.JDialog {
     boolean reg;
     Apoderado idApoderado;
     Apoderado apoderadoSelec01 = new Apoderado();
+    
+    
 
     public dialogAlumnoo() {
         super(FrmPrincipal.getInstancia(), true);
@@ -30,6 +33,11 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         textosAlumnos(false);
         controleAlumnos(true);
         setLocationRelativeTo(null);
+        View.BTransparent(btnBuscarApoderado);
+        View.BTransparent(btnEliminar1);
+        View.BTransparent(btnNuevo1);
+        View.BTransparent(btnRegistrar1);
+        View.BTransparent(btnBuscar1);
     }
 
     void limpiarTextos() {
@@ -153,12 +161,11 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         txtNombres1 = new javax.swing.JTextField();
         btnBuscarApoderado = new javax.swing.JButton();
         btnBuscar1 = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alumno");
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("GESTIONAR ALUMNO");
@@ -177,6 +184,9 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Nombres:");
 
+        txtidApoderado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtidApoderado.setOpaque(false);
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Estado Civil:");
 
@@ -187,7 +197,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("idApoderado:");
+        jLabel2.setText("Codigo:");
 
         cboEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Escoger>", "Soltero(a)", "Casado(a)" }));
 
@@ -250,7 +260,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
                     .addComponent(txtApellidos)
                     .addComponent(jLabel7)
                     .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,7 +320,6 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cboEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -326,7 +335,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscar, btnCancelar, btnEliminar, btnModificar, btnRegistrar});
@@ -334,7 +343,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         jTabbedPane1.addTab("Apoderado", jPanel1);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setText("idAlumno:");
+        jLabel6.setText("Codigo:");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Telefono:");
@@ -362,21 +371,24 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Nombres:");
 
-        btnEliminar1.setText("Eliminar");
+        btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/delete.png"))); // NOI18N
+        btnEliminar1.setToolTipText("Eliminar");
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
             }
         });
 
-        btnNuevo1.setText("Nuevo");
+        btnNuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/mas.png"))); // NOI18N
+        btnNuevo1.setToolTipText("Nuevo");
         btnNuevo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevo1ActionPerformed(evt);
             }
         });
 
-        btnRegistrar1.setText("Registrar");
+        btnRegistrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/save.png"))); // NOI18N
+        btnRegistrar1.setToolTipText("Guardar");
         btnRegistrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrar1ActionPerformed(evt);
@@ -397,7 +409,9 @@ public class dialogAlumnoo extends javax.swing.JDialog {
             }
         });
 
-        btnReporte1.setText("Reporte");
+        btnReporte1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/list.png"))); // NOI18N
+        btnReporte1.setToolTipText("Reporte");
+        btnReporte1.setPreferredSize(new java.awt.Dimension(41, 25));
         btnReporte1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporte1ActionPerformed(evt);
@@ -408,7 +422,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Apoderado:"));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel15.setText("idApoderado:");
+        jLabel15.setText("Codigo:");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setText("Apellidos:");
@@ -422,7 +436,7 @@ public class dialogAlumnoo extends javax.swing.JDialog {
 
         txtNombres1.setEditable(false);
 
-        btnBuscarApoderado.setText("...");
+        btnBuscarApoderado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/search.png"))); // NOI18N
         btnBuscarApoderado.setEnabled(false);
         btnBuscarApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,7 +482,8 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                     .addComponent(txtApellidos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        btnBuscar1.setText("Buscar");
+        btnBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconos/search.png"))); // NOI18N
+        btnBuscar1.setToolTipText("Buscar");
         btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscar1ActionPerformed(evt);
@@ -506,26 +521,25 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnModificar1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnNuevo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(btnRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnCancelar1))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(10, 10, 10)
-                                .addComponent(btnReporte1)))
+                                .addGap(0, 52, Short.MAX_VALUE)
+                                .addComponent(btnNuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRegistrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnReporte1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCancelar1)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnModificar1)
+                                .addGap(143, 143, 143)))
                         .addGap(29, 29, 29))))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBuscar1, btnCancelar1, btnEliminar1, btnModificar1, btnNuevo1, btnRegistrar1});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelar1, btnModificar1});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,57 +574,52 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(choFechaNacimientoAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevo1)
                             .addComponent(btnRegistrar1)
-                            .addComponent(btnCancelar1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnModificar1)
-                            .addComponent(btnEliminar1)
-                            .addComponent(btnBuscar1)))
-                    .addComponent(btnReporte1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addComponent(btnEliminar1)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnCancelar1)
+                                    .addComponent(btnModificar1))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnReporte1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(82, 82, 82))
         );
 
         jTabbedPane1.addTab("Alumno", jPanel2);
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(189, 189, 189)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -621,21 +630,115 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+        String idApoderado;
+        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a modificar: ");
+        Apoderado apoderado;
+        try {
+            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
+            if (apoderado != null) {
+                txtidApoderado.setText(apoderado.getCodigo());
+                txtNombres.setText(apoderado.getNombres());
+                txtApellidos.setText(apoderado.getApellidos());
+                txtTelefono.setText(apoderado.getTelefono());
+                txtDireccion.setText(apoderado.getDireccion());
+                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
+                reg = false;
+                textos(true);
+                txtidApoderado.setEnabled(false);
+                controles(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Id apoderado no registrado.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void txtTelefonoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoAlumnoActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoAlumnoActionPerformed
+        limpiarTextos();
+        textos(false);
+        controles(true);
+        txtidApoderado1.setText("");
+        txtNombres1.setText("");
+        txtApellidos1.setText("");
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        String idApoderado;
+        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a buscar: ");
+        Apoderado apoderado;
+        try {
+            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
+            if (apoderado != null) {
+                txtidApoderado.setText(apoderado.getCodigo());
+                txtNombres.setText(apoderado.getNombres());
+                txtApellidos.setText(apoderado.getApellidos());
+                txtTelefono.setText(apoderado.getTelefono());
+                txtDireccion.setText(apoderado.getDireccion());
+                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
+            } else {
+                JOptionPane.showMessageDialog(this, "Id apoderado no registrado.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        reg = true;
+        limpiarTextos();
+        textos(true);
+        controles(false);
+        txtidApoderado.requestFocus();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+        dialogReporteApoderado reporteApoderado = new dialogReporteApoderado();
+        reporteApoderado.setVisible(true);
+    }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        String idApoderado;
+        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a eliminar:");
+        Apoderado apoderado;
+        try {
+            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
+            if (apoderado != null) {
+                txtidApoderado.setText(apoderado.getCodigo());
+                txtNombres.setText(apoderado.getNombres());
+                txtApellidos.setText(apoderado.getApellidos());
+                txtTelefono.setText(apoderado.getTelefono());
+                txtDireccion.setText(apoderado.getDireccion());
+                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
+                txtidApoderado1.setText("");
+                txtNombres1.setText("");
+                txtApellidos1.setText("");
+                int resp = JOptionPane.showConfirmDialog(this, "Deseas Eliminarlo ", "Eliminar Dato", JOptionPane.YES_NO_OPTION);
+                if (resp == JOptionPane.YES_OPTION) {
+                    ApoderadoCN.getInstancia().eliminar(idApoderado);
+                    JOptionPane.showMessageDialog(this, "Registro eliminado");
+                }
+                limpiarTextos();
+            } else {
+                JOptionPane.showMessageDialog(this, "Id apoderado no registrado");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
@@ -701,130 +804,75 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         }
 
         //       try{
-        //        Apoderado a = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
-        //                if(a.getIdApoderado().equals(idApoderado)){
-        //                    JOptionPane.showMessageDialog(this, "Id repetido, por favor ingrese uno nuevo.");
-        //                    return;
-        //                }
-        //        }catch(SQLException e){
-        //                JOptionPane.showMessageDialog(null, e.getMessage());
-        //        }
+            //        Apoderado a = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
+            //                if(a.getIdApoderado().equals(idApoderado)){
+                //                    JOptionPane.showMessageDialog(this, "Id repetido, por favor ingrese uno nuevo.");
+                //                    return;
+                //                }
+            //        }catch(SQLException e){
+            //                JOptionPane.showMessageDialog(null, e.getMessage());
+            //        }
         limpiarTextos();
         textos(false);
         controles(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
         // TODO add your handling code here:
-        String idApoderado;
-        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a eliminar:");
-        Apoderado apoderado;
-        try {
-            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
-            if (apoderado != null) {
-                txtidApoderado.setText(apoderado.getCodigo());
-                txtNombres.setText(apoderado.getNombres());
-                txtApellidos.setText(apoderado.getApellidos());
-                txtTelefono.setText(apoderado.getTelefono());
-                txtDireccion.setText(apoderado.getDireccion());
-                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
-                txtidApoderado1.setText("");
-                txtNombres1.setText("");
-                txtApellidos1.setText("");
-                int resp = JOptionPane.showConfirmDialog(this, "Deseas Eliminarlo ", "Eliminar Dato", JOptionPane.YES_NO_OPTION);
-                if (resp == JOptionPane.YES_OPTION) {
-                    ApoderadoCN.getInstancia().eliminar(idApoderado);
-                    JOptionPane.showMessageDialog(this, "Registro eliminado");
-                }
-                limpiarTextos();
-            } else {
-                JOptionPane.showMessageDialog(this, "Id apoderado no registrado");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
-        // TODO add your handling code here:
-        dialogReporteApoderado reporteApoderado = new dialogReporteApoderado();
-        reporteApoderado.setVisible(true);
-    }//GEN-LAST:event_btnReporteActionPerformed
-
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
-        reg = true;
-        limpiarTextos();
-        textos(true);
-        controles(false);
-        txtidApoderado.requestFocus();
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        String idApoderado;
-        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a buscar: ");
-        Apoderado apoderado;
-        try {
-            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
-            if (apoderado != null) {
-                txtidApoderado.setText(apoderado.getCodigo());
-                txtNombres.setText(apoderado.getNombres());
-                txtApellidos.setText(apoderado.getApellidos());
-                txtTelefono.setText(apoderado.getTelefono());
-                txtDireccion.setText(apoderado.getDireccion());
-                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
-            } else {
-                JOptionPane.showMessageDialog(this, "Id apoderado no registrado.");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-        limpiarTextos();
-        textos(false);
-        controles(true);
-        txtidApoderado1.setText("");
-        txtNombres1.setText("");
-        txtApellidos1.setText("");
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-        String idApoderado;
-        idApoderado = JOptionPane.showInputDialog("Ingrese Id del apoderado a modificar: ");
-        Apoderado apoderado;
-        try {
-            apoderado = ApoderadoCN.getInstancia().buscarApoderado(idApoderado);
-            if (apoderado != null) {
-                txtidApoderado.setText(apoderado.getCodigo());
-                txtNombres.setText(apoderado.getNombres());
-                txtApellidos.setText(apoderado.getApellidos());
-                txtTelefono.setText(apoderado.getTelefono());
-                txtDireccion.setText(apoderado.getDireccion());
-                cboEstadoCivil.setSelectedItem(apoderado.getEstadoCivil());
-                reg = false;
-                textos(true);
-                txtidApoderado.setEnabled(false);
-                controles(false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Id apoderado no registrado.");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-    }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
         // TODO add your handling code here:
         String idAlumno;
-        idAlumno = JOptionPane.showInputDialog("Ingrese Id del apoderado a eliminar: ");
+        idAlumno = JOptionPane.showInputDialog("Ingrese Id del alumno a buscar: ");
         Alumno alumno;
+        try {
+            alumno = AlumnoCN.getInstancia().buscarAlumno(idAlumno);
+            if (alumno != null) {
+                txtidApoderado1.setText(alumno.getApoderado().getCodigo());
+                txtNombres1.setText(alumno.getApoderado().getNombres());
+                txtApellidos1.setText(alumno.getApoderado().getApellidos());
+                //Atributos alumno
+                txtidAlumno.setText(alumno.getCodigo());
+                txtNombresAlumno.setText(alumno.getNombres());
+                txtApellidosAlumno.setText(alumno.getApellidos());
+                cboSexoAlumno.setSelectedItem(alumno.getSexo());
+                txtTelefonoAlumno.setText(alumno.getTelefono());
+                txtDireccionAlumno.setText(alumno.getDireccion());
+                choFechaNacimientoAlumno.setDate(alumno.getFechaNacimiento());
+            } else {
+                JOptionPane.showMessageDialog(this, "Id Alumno no registrado.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscar1ActionPerformed
+
+    private void btnBuscarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarApoderadoActionPerformed
+        // TODO add your handling code here:
+        dialogBuscarApoderado buscarApoderado = new dialogBuscarApoderado();
+        buscarApoderado.setVisible(true);
+        idApoderado = buscarApoderado.apoderadoSelec;
+        txtidApoderado1.setText(idApoderado.getCodigo());
+        txtNombres1.setText(idApoderado.getNombres());
+        txtApellidos1.setText(idApoderado.getApellidos());
+        idApoderado.getTelefono();
+        idApoderado.getDireccion();
+        idApoderado.getEstadoCivil();
+    }//GEN-LAST:event_btnBuscarApoderadoActionPerformed
+
+    private void btnReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporte1ActionPerformed
+        // TODO add your handling code here:
+        dialogReporteAlumno reporteAlumno = new dialogReporteAlumno();
+        reporteAlumno.setVisible(true);
+    }//GEN-LAST:event_btnReporte1ActionPerformed
+
+    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+        // TODO add your handling code here:
+        String idAlumno;
+        idAlumno = JOptionPane.showInputDialog("Ingrese Id del alumno a modificar: ");
+        Alumno alumno;
+        btnBuscarApoderado.setText("Modificar?");
         try {
             alumno = AlumnoCN.getInstancia().buscarAlumno(idAlumno);
             if (alumno != null) {
@@ -838,37 +886,34 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                 txtTelefonoAlumno.setText(alumno.getTelefono());
                 txtDireccionAlumno.setText(alumno.getDireccion());
                 choFechaNacimientoAlumno.setDate(alumno.getFechaNacimiento());
-                int resp = JOptionPane.showConfirmDialog(this, "Deseas Eliminarlo ", "Eliminar Dato", JOptionPane.YES_NO_OPTION);
-                if (resp == JOptionPane.YES_OPTION) {
-                    AlumnoCN.getInstancia().eliminar(idAlumno);
-                    JOptionPane.showMessageDialog(this, "Registro eliminado");
-                }
-                limpiarTextosAlumnos();
-                txtidApoderado1.setText("");
-                txtNombres1.setText("");
-                txtApellidos1.setText("");
+                reg = false;
+                textosAlumnos(true);
+                btnBuscarApoderado.setEnabled(true);
+                txtidAlumno.setEnabled(false);
+                controleAlumnos(false);
             } else {
-                JOptionPane.showMessageDialog(this, "El id alumno no existe");
+                JOptionPane.showMessageDialog(this, "Id Alumno no registrado.");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_btnEliminar1ActionPerformed
+    }//GEN-LAST:event_btnModificar1ActionPerformed
 
-    private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
+    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
         // TODO add your handling code here:
-        reg = true;
         limpiarTextosAlumnos();
-        textosAlumnos(true);
-        controleAlumnos(false);
-        txtidAlumno.requestFocus();
-    }//GEN-LAST:event_btnNuevo1ActionPerformed
+        textosAlumnos(false);
+        controleAlumnos(true);
+        txtidApoderado1.setText("");
+        txtNombres1.setText("");
+        txtApellidos1.setText("");
+    }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void btnRegistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar1ActionPerformed
         // TODO add your handling code here:
 
         if (txtidApoderado1.getText().compareTo("") == 0 && txtNombres1.getText().compareTo("") == 0
-                && txtApellidos1.getText().compareTo("") == 0) {
+            && txtApellidos1.getText().compareTo("") == 0) {
             int resp = JOptionPane.showConfirmDialog(this, "Deseas buscar apoderado? ", "No se ingreso apoderado", JOptionPane.YES_NO_OPTION);
             if (resp == JOptionPane.YES_OPTION) {
                 dialogBuscarApoderado buscarApoderado = new dialogBuscarApoderado();
@@ -965,22 +1010,20 @@ public class dialogAlumnoo extends javax.swing.JDialog {
         txtApellidos1.setText("");
     }//GEN-LAST:event_btnRegistrar1ActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnNuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevo1ActionPerformed
         // TODO add your handling code here:
+        reg = true;
         limpiarTextosAlumnos();
-        textosAlumnos(false);
-        controleAlumnos(true);
-        txtidApoderado1.setText("");
-        txtNombres1.setText("");
-        txtApellidos1.setText("");
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+        textosAlumnos(true);
+        controleAlumnos(false);
+        txtidAlumno.requestFocus();
+    }//GEN-LAST:event_btnNuevo1ActionPerformed
 
-    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
         // TODO add your handling code here:
         String idAlumno;
-        idAlumno = JOptionPane.showInputDialog("Ingrese Id del alumno a modificar: ");
+        idAlumno = JOptionPane.showInputDialog("Ingrese Id del apoderado a eliminar: ");
         Alumno alumno;
-        btnBuscarApoderado.setText("Modificar?");
         try {
             alumno = AlumnoCN.getInstancia().buscarAlumno(idAlumno);
             if (alumno != null) {
@@ -994,69 +1037,26 @@ public class dialogAlumnoo extends javax.swing.JDialog {
                 txtTelefonoAlumno.setText(alumno.getTelefono());
                 txtDireccionAlumno.setText(alumno.getDireccion());
                 choFechaNacimientoAlumno.setDate(alumno.getFechaNacimiento());
-                reg = false;
-                textosAlumnos(true);
-                btnBuscarApoderado.setEnabled(true);
-                txtidAlumno.setEnabled(false);
-                controleAlumnos(false);
+                int resp = JOptionPane.showConfirmDialog(this, "Deseas Eliminarlo ", "Eliminar Dato", JOptionPane.YES_NO_OPTION);
+                if (resp == JOptionPane.YES_OPTION) {
+                    AlumnoCN.getInstancia().eliminar(idAlumno);
+                    JOptionPane.showMessageDialog(this, "Registro eliminado");
+                }
+                limpiarTextosAlumnos();
+                txtidApoderado1.setText("");
+                txtNombres1.setText("");
+                txtApellidos1.setText("");
             } else {
-                JOptionPane.showMessageDialog(this, "Id Alumno no registrado.");
+                JOptionPane.showMessageDialog(this, "El id alumno no existe");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_btnModificar1ActionPerformed
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
 
-    private void btnReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporte1ActionPerformed
+    private void txtTelefonoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoAlumnoActionPerformed
         // TODO add your handling code here:
-        dialogReporteAlumno reporteAlumno = new dialogReporteAlumno();
-        reporteAlumno.setVisible(true);
-    }//GEN-LAST:event_btnReporte1ActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
-        String idAlumno;
-        idAlumno = JOptionPane.showInputDialog("Ingrese Id del alumno a buscar: ");
-        Alumno alumno;
-        try {
-            alumno = AlumnoCN.getInstancia().buscarAlumno(idAlumno);
-            if (alumno != null) {
-                txtidApoderado1.setText(alumno.getApoderado().getCodigo());
-                txtNombres1.setText(alumno.getApoderado().getNombres());
-                txtApellidos1.setText(alumno.getApoderado().getApellidos());
-                //Atributos alumno
-                txtidAlumno.setText(alumno.getCodigo());
-                txtNombresAlumno.setText(alumno.getNombres());
-                txtApellidosAlumno.setText(alumno.getApellidos());
-                cboSexoAlumno.setSelectedItem(alumno.getSexo());
-                txtTelefonoAlumno.setText(alumno.getTelefono());
-                txtDireccionAlumno.setText(alumno.getDireccion());
-                choFechaNacimientoAlumno.setDate(alumno.getFechaNacimiento());
-            } else {
-                JOptionPane.showMessageDialog(this, "Id Alumno no registrado.");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
-    private void btnBuscarApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarApoderadoActionPerformed
-        // TODO add your handling code here:
-        dialogBuscarApoderado buscarApoderado = new dialogBuscarApoderado();
-        buscarApoderado.setVisible(true);
-        idApoderado = buscarApoderado.apoderadoSelec;
-        txtidApoderado1.setText(idApoderado.getCodigo());
-        txtNombres1.setText(idApoderado.getNombres());
-        txtApellidos1.setText(idApoderado.getApellidos());
-        idApoderado.getTelefono();
-        idApoderado.getDireccion();
-        idApoderado.getEstadoCivil();
-    }//GEN-LAST:event_btnBuscarApoderadoActionPerformed
+    }//GEN-LAST:event_txtTelefonoAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1116,7 +1116,6 @@ public class dialogAlumnoo extends javax.swing.JDialog {
     private javax.swing.JButton btnRegistrar1;
     private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnReporte1;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox cboEstadoCivil;
     private javax.swing.JComboBox cboSexoAlumno;
     private com.toedter.calendar.JDateChooser choFechaNacimientoAlumno;

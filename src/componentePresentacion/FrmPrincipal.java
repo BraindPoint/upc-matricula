@@ -1,13 +1,12 @@
-
 package componentePresentacion;
 
 import images.DesktopConFondo;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.Timer;
-
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -15,28 +14,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
      * Creates new form FrmPrincipal
      */
     private static FrmPrincipal instancia;
-    public static FrmPrincipal getInstancia(){
-        if(instancia==null){
+
+    public static FrmPrincipal getInstancia() {
+        if (instancia == null) {
             instancia = new FrmPrincipal();
         }
-        
+
         return instancia;
     }
     private Timer timer;
+
     public FrmPrincipal() {
         initComponents();
-        
+
         setLocationRelativeTo(null);
-        Calendar cal= Calendar.getInstance();
-        String fecha=cal.get(Calendar.DATE)+"/"+cal.get(Calendar.MONTH)+"/"+cal.get(cal.YEAR);
-        this.lblFecha.setText(fecha); 
-        
+        Calendar cal = Calendar.getInstance();
+        String fecha = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) + "/" + cal.get(cal.YEAR);
+        this.lblFecha.setText(fecha);
+
     }
-    public class relog implements ActionListener{
-        public void actionPerformed(ActionEvent evt){
-            
+
+    public class relog implements ActionListener {
+
+        public void actionPerformed(ActionEvent evt) {
+
             GregorianCalendar tiempo = new GregorianCalendar();
-            int hora,minutos,segundos;
+            int hora, minutos, segundos;
             hora = tiempo.get(Calendar.HOUR);
             minutos = tiempo.get(Calendar.MINUTE);
             segundos = tiempo.get(Calendar.SECOND);
@@ -395,7 +398,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         dialogReporte reporte = new dialogReporte();
         reporte.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
